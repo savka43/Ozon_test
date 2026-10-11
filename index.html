@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Progress Circle</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <main class="progress-container">
+            <h1 class="progress-title">Progress</h1>
+
+            <div class="progress-content">
+                <div
+                    class="progress-container-circle"
+                    role="progressbar"
+                    aria-label="Progress"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="15"
+                >
+                    <div class="progress-visual">
+                        <svg
+                            class="svg-circles"
+                            viewBox="24 24 152 152"
+                            aria-hidden="true"
+                        >
+                            <circle
+                                class="light-circle"
+                                cx="100"
+                                cy="100"
+                                r="70"
+                            ></circle>
+
+                            <circle
+                                class="blue-circle"
+                                cx="100"
+                                cy="100"
+                                r="70"
+                                transform="rotate(-90 100 100)"
+                            ></circle>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="progress-container-api">
+                    <ul class="button-list">
+                        <li class="button-element">
+                            <input
+                                class="progress-input"
+                                type="number"
+                                min="0"
+                                max="100"
+                                step="any"
+                                inputmode="decimal"
+                                aria-describedby="value-error"
+                                value="15"
+                                id="progress-value"
+                            />
+                            <label for="progress-value">Value</label>
+                        </li>
+
+                        <li class="button-element">
+                            <label class="switch">
+                                <input type="checkbox" id="animate" role="switch" />
+                                <span class="slider" aria-hidden="true"></span>
+                            </label>
+                            <label for="animate">Animate</label>
+                        </li>
+
+                        <li class="button-element">
+                            <label class="switch">
+                                <input type="checkbox" id="hide" role="switch" />
+                                <span class="slider" aria-hidden="true"></span>
+                            </label>
+                            <label for="hide">Hide</label>
+                        </li>
+                    </ul>
+                    <span id="value-error" class="value-error" role="status"></span>
+                </div>
+            </div>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>
