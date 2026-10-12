@@ -8,23 +8,11 @@
     </head>
     <body>
         <main class="progress-container">
-            <h1 class="progress-title">Progress</h1>
-
             <div class="progress-content">
-                <div
-                    class="progress-container-circle"
-                    role="progressbar"
-                    aria-label="Progress"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    aria-valuenow="15"
-                >
+                <div class="progress-container-circle">
+                    <h1 class="progress-title">Progress</h1>
                     <div class="progress-visual">
-                        <svg
-                            class="svg-circles"
-                            viewBox="24 24 152 152"
-                            aria-hidden="true"
-                        >
+                        <svg class="svg-circles" viewBox="24 24 152 152">
                             <circle
                                 class="light-circle"
                                 cx="100"
@@ -53,34 +41,40 @@
                                 max="100"
                                 step="any"
                                 inputmode="decimal"
-                                aria-describedby="value-error"
                                 value="15"
                                 id="progress-value"
+                                aria-describedby="value-error"
                             />
                             <label for="progress-value">Value</label>
                         </li>
 
                         <li class="button-element">
                             <label class="switch">
-                                <input type="checkbox" id="animate" role="switch" />
-                                <span class="slider" aria-hidden="true"></span>
+                                <input type="checkbox" id="animate" />
+                                <span class="slider"></span>
                             </label>
                             <label for="animate">Animate</label>
                         </li>
 
                         <li class="button-element">
                             <label class="switch">
-                                <input type="checkbox" id="hide" role="switch" />
-                                <span class="slider" aria-hidden="true"></span>
+                                <input type="checkbox" id="hide" />
+                                <span class="slider"></span>
                             </label>
                             <label for="hide">Hide</label>
                         </li>
                     </ul>
-                    <span id="value-error" class="value-error" role="status"></span>
+
+                    <span
+                        id="value-error"
+                        class="value-error"
+                        role="status"
+                    ></span>
                 </div>
             </div>
         </main>
 
+        <script src="progress.js"></script>
         <script src="script.js"></script>
     </body>
 </html>

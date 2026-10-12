@@ -22,8 +22,8 @@ body {
 
 .progress-title {
     position: absolute;
-    top: 24px;
-    left: 20px;
+    bottom: calc(100% + 24px);
+    left: 0;
     margin: 0;
     font-size: 16px;
     font-weight: 500;
@@ -36,15 +36,20 @@ body {
     align-content: center;
     align-items: center;
     justify-items: center;
+
     min-height: calc(100vh - 40px);
     min-height: calc(100dvh - 40px);
+
     row-gap: clamp(32px, calc(100vh - 476px), 92px);
     row-gap: clamp(32px, calc(100dvh - 476px), 92px);
+
     padding: 40px 0 72px;
 }
 
+/* Круг */
+
 .progress-container-circle {
-    flex-shrink: 0;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,15 +58,21 @@ body {
 }
 
 .progress-visual {
-    width: 100%;
-    height: 100%;
+    width: 120px;
+    height: 120px;
     opacity: 1;
+}
+
+.progress-visual.is-hidden {
+    opacity: 0;
 }
 
 .svg-circles {
     display: block;
     width: 120px;
     height: 120px;
+    transform: rotate(0deg);
+    transform-origin: center;
 }
 
 .light-circle {
@@ -76,10 +87,11 @@ body {
     stroke-width: 12;
 }
 
+/* Настройки */
+
 .progress-container-api {
     position: relative;
     width: 144px;
-    flex-shrink: 0;
     display: flex;
     justify-content: flex-start;
 }
@@ -99,6 +111,10 @@ body {
     gap: 24px;
     min-height: 30px;
     font-size: 16px;
+}
+
+.button-element label {
+    cursor: pointer;
 }
 
 .progress-input {
@@ -122,7 +138,6 @@ body {
 
 .progress-input {
     appearance: textfield;
-    -moz-appearance: textfield;
 }
 
 .switch {
@@ -176,20 +191,7 @@ body {
     outline-offset: 3px;
 }
 
-/* Анимация и видимость назначены разным элементам, поэтому состояния независимы. */
-.progress-container-circle.is-animated {
-    animation: progress-rotation 1.5s linear infinite;
-}
-
-.progress-visual.is-hidden {
-    opacity: 0;
-}
-
-@keyframes progress-rotation {
-    to {
-        transform: rotate(360deg);
-    }
-}
+/* Ошибки */
 
 .progress-input[aria-invalid="true"] {
     border-color: #c62828;
@@ -204,15 +206,12 @@ body {
     font-size: 12px;
 }
 
-.button-element label {
-    cursor: pointer;
-}
-
 @media (orientation: landscape) {
     .progress-content {
         grid-template-columns: 120px 144px;
         grid-template-rows: 120px;
         justify-content: space-between;
+
         width: 100%;
         max-width: 352px;
         margin: 0 auto;
